@@ -1,9 +1,9 @@
-1. dokers werkend krijgen.
+1. dockers werkend krijgen.
 2. database herstructureren.
 3. website maken.
-4. eerst een hoofd keuze waar je een prompt over wilt maken.
-5. sub keuze waar je selecteert op welke methode je wilt zoals: uitleg, antwoord, lijst.
-6. de vraag of de code pasten wat je wilt.
-7. geeft een promp terug die je kan kopië en paste in bijvoorbeeld chatgpt.
-8. admin kan dingen toevoegen prompts toevoegen.
-9. als er tijd over is een dinamische prompt op te zetten tussen AI en de user.
+4. In de website krijg je een keuze over welk onderwerp je een prompt wilt genereren zoals: Code, bakken, storytelling.
+5. Als je een onderwerp hebt gekozen krijg je een sub keuze zoals: uitleg, antwoord, lijst.
+6. Vul je oorspronkelijke prompt of code in.
+7. De website gooit een prompt die de user kan copy pasten in GPT, Gemini, Bing, etc.
+8. admin kan keuzes toevoegen.
+9. als er tijd over is een dynamische prompt op te zetten die een AI gebruikt om een prompt te passeren tussen de AI en de user waardoor er een specifiekere, betere prompt uit komt gecaterd naar de user.
