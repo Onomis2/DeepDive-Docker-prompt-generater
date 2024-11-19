@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Database->execute();
 
         header("Location: ../homepage.php");
+        die;
     } else {
         $subject = filter_var($_POST['subjects'], FILTER_SANITIZE_STRING);
         $prompt = filter_var($_POST['prompt'], FILTER_SANITIZE_STRING);
@@ -45,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Database->execute();
 
         header("Location: ../homepage.php");
+        die;
     }
 }
 ?>
