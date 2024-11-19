@@ -1,4 +1,4 @@
-.title-center-home h1 {
+.title-center-home {
     text-align: center;
 }
 .center-boxes {
@@ -17,12 +17,13 @@
     margin: 20px;
     text-align: center;
 }
-
 .center-boxes a {
     text-decoration: none;
     color: black;
 }
-.right-button-login a {
-    height: 10vh;
+.right-button-login {
     text-align: right;
+}
+.space {
+    margin-bottom: 3vh;
 }
