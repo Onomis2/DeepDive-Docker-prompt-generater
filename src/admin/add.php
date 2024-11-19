@@ -34,12 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <form method="post">
         <div>
-            <label for="subject">Subjects:</label>
-            <?php foreach ($subjects as $subject) { ?>
-                <input type="radio" name="subject" value="<?= $subject['id']; ?>"><?= $subject['subject']; ?>
-            <?php } ?>
-        </div>
-        <div>
             <label for="subjects">Write new subject:</label>
             <input type="text" name="subjects" id="subjects">
         </div>
@@ -47,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="prompt">Write new prompt:</label>
             <input type="text" name="prompt" id="prompt">
         </div>
+        <div>
+            <label for="choice">Write new choice:</label>
+            <input type="text" name="choice" id="choice">
+        </div>
+        <div></div>
     </form>
 </body>
 </html>
