@@ -5,7 +5,8 @@ require("connection.php");
 session_start();
 
 $Database = $dbh->prepare("SELECT choices.* FROM choices INNER JOIN tags ON choices.id = tags.choice_id WHERE tags.subject_id = :id");
-$Database->bindParam(':id', $_GET['subject']);
+$subjectId = filter_var($_GET['subject'], FILTER_SANITIZE_NUMBER_INT);
+$Database->bindParam(':id',$subjectId);
 $Database->execute();
 $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
 
@@ -32,7 +33,7 @@ $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="center-boxes">
         <?php foreach ($choices as $choice) { ?>
-            <a href="choice.php/?subject=<?=$_GET['subject'];?>&choice=<?=$choice['id'];?>"><p class="boxes"><?= $choice['choice'];?></p></a>
+            <a href="choice.php?subject=<?=$_GET['subject'];?>&choice=<?=$choice['id'];?>"><p class="boxes"><?= $choice['choice'];?></p></a>
         <?php } ?>
     </div>
 </body>
