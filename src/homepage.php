@@ -32,7 +32,7 @@ $subjects = $Database->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="center-boxes">
         <?php foreach ($subjects as $subject) { ?>
-            <a href="choice.php"><p class="boxes"><?= $subject['subject'];?></p></a>
+            <a href="choice.php/?subject=<?=$subject['id'];?>"><p class="boxes"><?= $subject['subject'];?></p></a>
         <?php } ?>
     </div>
 </body>
