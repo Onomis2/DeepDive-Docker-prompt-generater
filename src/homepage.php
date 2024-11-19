@@ -1,6 +1,6 @@
 <?php
 
-$subjects = array('code', 'bakken', 'storytelling'); // test data
+$subjects = array('code', 'bakken', 'storytelling', 'b', 'p', 'j', 'h', 'y', 't', '4'); // test data
 ?>
 
 <!DOCTYPE html>
