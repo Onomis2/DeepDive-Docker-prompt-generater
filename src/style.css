@@ -1,0 +1,28 @@
+.title-center-home h1 {
+    text-align: center;
+}
+.center-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.center-boxes p {
+    padding-right: 50px;
+}
+.boxes {
+    width: 300px;
+    border-style: outset;
+    padding: 50px;
+    margin: 20px;
+    text-align: center;
+}
+
+.center-boxes a {
+    text-decoration: none;
+    color: black;
+}
+.right-button-login a {
+    height: 10vh;
+    text-align: right;
+}
