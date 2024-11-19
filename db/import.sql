@@ -37,4 +37,4 @@ INSERT INTO tags (subject_id, choice_id) VALUES
 (1, 2);
 
 INSERT INTO users (username, password) VALUES
-('admin', SHA2('bit_academy', 256));
+('admin', '$2y$10$dU8n53kNNv4tzUUloptXSeH.2V914dhfB9Xaq.qgZnWLEOw9Vnq0y');
