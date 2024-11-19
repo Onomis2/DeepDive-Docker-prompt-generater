@@ -1,6 +1,11 @@
 <?php
 
-$subjects = array('code', 'bakken', 'storytelling', 'b', 'p', 'j', 'h', 'y', 't', '4'); // test data
+require("connection.php");
+
+$Database = $dbh->prepare("SELECT * FROM subjects ORDER BY id");
+$Database->execute();
+$subjects = $Database->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +25,7 @@ $subjects = array('code', 'bakken', 'storytelling', 'b', 'p', 'j', 'h', 'y', 't'
     </div>
     <div class="center-boxes">
         <?php foreach ($subjects as $subject) { ?>
-            <a href="choise.php"><p class="boxes"><?= $subject;?></p></a>
+            <a href="choice.php"><p class="boxes"><?= $subject['subject'];?></p></a>
         <?php } ?>
     </div>
 </body>
