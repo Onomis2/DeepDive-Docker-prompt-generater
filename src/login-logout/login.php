@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="title-center-home">
     <nav class="right-button-login">
-        <a href="../homepage.php"><button class="choose">choose</button></a>
+        <a href="../homepage.php"><button class="back">back</button></a>
     </nav>
     <h1>Login</h1>
         <form method="post">
