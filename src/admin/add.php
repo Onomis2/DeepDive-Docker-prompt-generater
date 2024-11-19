@@ -9,11 +9,43 @@ if (empty($_SESSION["loggedInUser"])) {
     die;
 }
 
-$Database = $dbh->prepare("SELECT * FROM subjects ORDER BY id");
+$Database = $dbh->prepare("SELECT * FROM subjects WHERE id = :id");
+$Database->bindParam(':id', $_GET['subject']);
 $Database->execute();
-$subjects = $Database->fetchAll(PDO::FETCH_ASSOC);
+$subject = $Database->fetch(PDO::FETCH_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($subject) {
+        $choice = filter_var($_POST['choice'], FILTER_SANITIZE_STRING);
+        $prompt = filter_var($_POST['prompt'], FILTER_SANITIZE_STRING);
+
+        $Database = $dbh->prepare("INSERT INTO choices (choice, prompt) VALUES (:choice, :prompt)");
+        $Database->bindParam(':choice', $choice);
+        $Database->bindParam(':prompt', $prompt);
+        $Database->execute();
+
+        $Database = $dbh->prepare("SELECT id FROM choices WHERE choice = :choice");
+        $Database->bindParam(':choice', $choice);
+        $Database->execute();
+        $choiceId = $Database->fetch(PDO::FETCH_ASSOC);
+
+        $Database = $dbh->prepare("INSERT INTO tags (subject_id, choice_id) VALUES (:subject_id, :choice_id)");
+        $Database->bindParam(':subject_id', $_GET['subject']);
+        $Database->bindParam(':choice_id', $choiceId['id']);
+        $Database->execute();
+
+        header("Location: ../homepage.php");
+    } else {
+        $subject = filter_var($_POST['subjects'], FILTER_SANITIZE_STRING);
+        $prompt = filter_var($_POST['prompt'], FILTER_SANITIZE_STRING);
+
+        $Database = $dbh->prepare("INSERT INTO subjects (subject, prompt, images) VALUES (:subject, :prompt, NULL)");
+        $Database->bindParam(':subject', $subject);
+        $Database->bindParam(':prompt', $prompt);
+        $Database->execute();
+
+        header("Location: ../homepage.php");
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -30,22 +62,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="../homepage.php"><button class="back">Back</button></a>
     </nav>
     <div class="title-center-home">
-        <h1>Add a prompt</h1>
+         <?php if ($subject) { ?> 
+            <h1>Add a prompt for <?= $subject['subject'];?></h1>
+        <?php } else { ?>
+            <h1>Add a subject</h1>
+        <?php } ?>
     </div>
     <form method="post">
-        <div>
-            <label for="subjects">Write new subject:</label>
-            <input type="text" name="subjects" id="subjects">
-        </div>
-        <div>
-            <label for="prompt">Write new prompt:</label>
-            <input type="text" name="prompt" id="prompt">
-        </div>
-        <div>
-            <label for="choice">Write new choice:</label>
-            <input type="text" name="choice" id="choice">
-        </div>
-        <div></div>
+        <?php if ($subject) { ?>
+            <div>
+                <label for="choice">Write new choice:</label>
+                <input type="text" name="choice" id="choice">
+            </div>
+            <div>
+                <label for="prompt">Write new prompt:</label>
+                <input type="text" name="prompt" id="prompt">
+            </div>
+        <?php } else { ?>
+            <div>
+                <label for="subjects">Write new subject:</label>
+                <input type="text" name="subjects" id="subjects">
+            </div>
+            <div>
+                <label for="prompt">Write new prompt:</label>
+                <input type="text" name="prompt" id="prompt">
+            </div>
+        <?php } ?>
+        <input type="submit" value="Submit">
     </form>
 </body>
 </html>
