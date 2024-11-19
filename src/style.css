@@ -22,7 +22,6 @@
     text-decoration: none;
     color: black;
 }
-.right-button-login a {
-    height: 10vh;
+.right-button-login {
     text-align: right;
 }

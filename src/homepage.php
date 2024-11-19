@@ -17,11 +17,11 @@ $subjects = $Database->fetchAll(PDO::FETCH_ASSOC);
     <title>home</title>
 </head>
 <body>
+    <nav class="right-button-login">
+        <a href="login.php"><button class="login-button">Login</button></a>
+    </nav>
     <div class="title-center-home">
         <h1>Choose a subject</h1>
-        <nav class="right-button-login">
-            <a href="login.php"><button class="login-button">Login</button></a>
-        </nav>
     </div>
     <div class="center-boxes">
         <?php foreach ($subjects as $subject) { ?>
