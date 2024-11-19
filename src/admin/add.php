@@ -70,27 +70,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>Add a subject</h1>
         <?php } ?>
     </div>
-    <form method="post">
-        <?php if ($subject) { ?>
-            <div>
-                <label for="choice">Write new choice:</label>
-                <input type="text" name="choice" id="choice">
-            </div>
-            <div>
-                <label for="prompt">Write new prompt:</label>
-                <input type="text" name="prompt" id="prompt">
-            </div>
-        <?php } else { ?>
-            <div>
-                <label for="subjects">Write new subject:</label>
-                <input type="text" name="subjects" id="subjects">
-            </div>
-            <div>
-                <label for="prompt">Write new prompt:</label>
-                <input type="text" name="prompt" id="prompt">
-            </div>
-        <?php } ?>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="center-boxes">
+        <div class="boxes">
+            <form method="post">
+                <?php if ($subject) { ?>
+                    <div class="space">
+                        <label for="choice">Write new choice:</label>
+                        <input type="text" name="choice" id="choice">
+                    </div>
+                    <div class="space">
+                        <label for="prompt">Write new prompt:</label>
+                        <input type="text" name="prompt" id="prompt">
+                    </div>
+                <?php } else { ?>
+                    <div class="space">
+                        <label for="subjects">Write new subject:</label>
+                        <input type="text" name="subjects" id="subjects">
+                    </div>
+                    <div class="space">
+                        <label for="prompt">Write new prompt:</label>
+                        <input type="text" name="prompt" id="prompt">
+                    </div>
+                <?php } ?>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -36,21 +36,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="title-center-home">
-    <nav class="right-button-login">
-        <a href="../homepage.php"><button class="back">back</button></a>
-    </nav>
-    <h1>Login</h1>
-        <form method="post">
-            <div class="space">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="space">
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <button type="submit">Login</button>
-        </form>
+        <nav class="right-button-login">
+            <a href="../homepage.php"><button class="back">back</button></a>
+        </nav>
+        <h1>Login</h1>
+    </div>
+    <div class="center-boxes">
+        <div class="boxes">
+            <form method="post">
+                <div class="space">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="space">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
