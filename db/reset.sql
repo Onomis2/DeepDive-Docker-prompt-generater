@@ -34,15 +34,19 @@ CREATE TABLE users (
 );
 
 INSERT INTO subjects (subject, prompt) VALUES
-('code', 'using modern libraries blah blah');
+('code', 'using modern libraries like PHP 8.2.12, ECMAScript 2023, python 3.14, Lua 5.4.7, SQL Server 2022, phpMyAdmin 5.2 and others;');
 
 INSERT INTO choices (id, choice, prompt) VALUES
-(1, 'debug', 'Zoek fout in code'),
-(2, 'Geef lijst', 'Geef lijst code');
+(1, 'debug een script of error', 'I need help debugging a specific error or bug in my code. Please assist me with finding the issue and providing potential fixes for it:'),
+(2, 'Geef lijst van functies', 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:');
+(3, 'Geef een manier om te coderen', 'Please suggest coding techniques or approaches to solve the following problem/issue in:');
+(4, 'Geef een uitleg', 'Can you provide a detailed explanation of the following:');
 
 INSERT INTO tags (subject_id, choice_id) VALUES
 (1, 1),
-(1, 2);
+(1, 2),
+(1, 3),
+(1, 4);
 
 INSERT INTO users (username, password) VALUES
 ('admin', '$2y$10$dU8n53kNNv4tzUUloptXSeH.2V914dhfB9Xaq.qgZnWLEOw9Vnq0y');
