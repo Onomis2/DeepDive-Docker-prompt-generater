@@ -34,7 +34,7 @@ $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="center-boxes">
         <?php foreach ($choices as $choice) { ?>
-            <a href="choice.php?subject=<?=$_GET['subject'];?>&choice=<?=$choice['id'];?>"><p class="boxes"><?= $choice['choice'];?></p></a>
+            <a href="prompt.php?subject=<?=$_GET['subject'];?>&choice=<?=$choice['id'];?>"><p class="boxes"><?= $choice['choice'];?></p></a>
         <?php } ?>
     </div>
 </body>
