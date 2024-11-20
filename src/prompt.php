@@ -19,8 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $combined_paragraph = "$subject_prompt" . " " . "$choice_prompt" . " " . "$user_prompt";
 
     $prompt = nl2br($combined_paragraph);
-    header("Location: https://chatgpt.com/?q=$prompt");
-    die();
+    echo "<script>
+        window.open('https://chatgpt.com/?q=" . urlencode($prompt) . "', '_blank');
+        window.location.href = 'homepage.php';
+    </script>";
+    exit();
 }
 ?>
 
