@@ -37,8 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <nav class="right-button-login">
-        <a href="login-logout/logout.php"><button class="login-button">Logout</button></a>
-        <a href="choice.php?subject=<?= $_GET['subject']; ?>"><button class="back">Back</button></a>
+        <?php if (empty($_SESSION["loggedInUser"])) { ?>
+            <a href="login-logout/login.php"><button class="login-button">Login</button></a>
+            <a href="choice.php?subject=<?= $_GET['subject']; ?>"><button class="back">Back</button></a>
+        <?php } else { ?>
+            <a href="login-logout/logout.php"><button class="login-button">Logout</button></a>
+            <a href="choice.php?subject=<?= $_GET['subject']; ?>"><button class="back">Back</button></a>
+        <?php } ?>
     </nav>
     <div class="title-center-home">
         <h1>In one sentence, describe your request</h1>
