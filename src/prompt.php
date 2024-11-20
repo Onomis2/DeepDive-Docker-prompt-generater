@@ -35,14 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <nav class="right-button-login">
         <a href="login-logout/logout.php"><button class="login-button">Logout</button></a>
-        <a href="homepage.php"><button class="back">Back</button></a>
+        <a href="choice.php?subject=<?= $_GET['subject']; ?>"><button class="back">Back</button></a>
     </nav>
     <div class="title-center-home">
         <h1>In one sentence, describe your request</h1>
     </div>
-    <form method="post">
-        <input type="text" name="prompt" value="">
-        <button class="back">Submit</button></a>
-    </form>
+    <div class="center-boxes">
+        <div class="boxes">
+            <form method="post">
+                <input type="text" name="prompt" value="">
+                <button class="back">Submit</button></a>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

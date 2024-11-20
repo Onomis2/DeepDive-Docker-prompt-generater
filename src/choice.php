@@ -11,6 +11,7 @@ $Database->execute();
 $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,7 @@ $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
         <?php } else { ?>
             <a href="login-logout/logout.php"><button class="login-button">Logout</button></a>
             <a href="admin/add.php?subject=<?= $_GET['subject']?>"><button class="add">Add</button></a>
+            <a href="admin/delete.php?subject=<?= $_GET['subject']?>"><button class="delete">Delete</button></a>
             <a href="homepage.php"><button class="back">Back</button></a>
         <?php } ?>
     </nav>
