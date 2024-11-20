@@ -36,5 +36,8 @@ $subjects = $Database->fetchAll(PDO::FETCH_ASSOC);
             <a href="choice.php?subject=<?=$subject['id'];?>"><p class="boxes"><?= $subject['subject'];?></p></a>
         <?php } ?>
     </div>
+    <div class="down-left-box">
+        <a href="AI_Prompt.php"><p class="box-left">Generate a prompt with AI</p></a>
+    </div>
 </body>
 </html>

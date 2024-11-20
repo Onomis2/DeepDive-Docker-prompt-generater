@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 70vh;
 }
 .center-boxes p {
     padding-right: 50px;
@@ -30,4 +30,18 @@ a {
 }
 .space {
     margin-bottom: 3vh;
+}
+.down-left-box {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.box-left {
+    width: 250px;
+    border-style: outset;
+    padding: 40px;
+    margin-left: 20px;
+    margin-top: -550px;
+    text-align: center;
+    background-color: white;
 }
