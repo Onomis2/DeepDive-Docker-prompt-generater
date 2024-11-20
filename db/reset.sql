@@ -38,8 +38,8 @@ INSERT INTO subjects (subject, prompt) VALUES
 
 INSERT INTO choices (id, choice, prompt) VALUES
 (1, 'debug een script of error', 'I need help debugging a specific error or bug in my code. Please assist me with finding the issue and providing potential fixes for it:'),
-(2, 'Geef lijst van functies', 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:');
-(3, 'Geef een manier om te coderen', 'Please suggest coding techniques or approaches to solve the following problem/issue in:');
+(2, 'Geef lijst van functies', 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:'),
+(3, 'Geef een manier om te coderen', 'Please suggest coding techniques or approaches to solve the following problem/issue in:'),
 (4, 'Geef een uitleg', 'Can you provide a detailed explanation of the following:');
 
 INSERT INTO tags (subject_id, choice_id) VALUES
