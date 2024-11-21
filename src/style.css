@@ -10,14 +10,41 @@ body {
     align-items: center;
     height: 70vh;
 }
-.center-boxes p {
-    padding-right: 50px;
-}
 .boxes {
     width: 300px;
     border-style: outset;
     padding: 50px;
     margin: 20px;
+    text-align: center;
+    background-color: white;
+}
+.center-boxes p {
+    padding-right: 50px;
+}
+.center-boxes-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.row-boxes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.boxes-two {
+    flex: 1 1 33%;
+    text-align: center;
+    padding: 50px;
+    margin: 20px;
+    width: 300px;
+    border-style: outset;
     text-align: center;
     background-color: white;
 }
@@ -41,7 +68,7 @@ a {
     border-style: outset;
     padding: 40px;
     margin-left: 20px;
-    margin-top: -550px;
+    margin-top: 25px;
     text-align: center;
     background-color: white;
 }

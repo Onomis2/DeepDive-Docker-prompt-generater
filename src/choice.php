@@ -35,10 +35,27 @@ $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
     <div class="title-center-home">
         <h1>Choose a format</h1>
     </div>
-    <div class="center-boxes">
-        <?php foreach ($choices as $choice) { ?>
-            <a href="prompt.php?subject=<?=$_GET['subject'];?>&choice=<?=$choice['id'];?>"><p class="boxes"><?= $choice['choice'];?></p></a>
-        <?php } ?>
+    <div class="center-boxes-two">
+        <div class="row-boxes">
+            <?php
+
+            $counter = 0;
+            foreach ($choices as $choice) { 
+                if ($counter % 3 == 0) { ?>
+                    <div class="row">
+                <?php } ?>
+                <a href="prompt.php?subject=<?=$_GET['subject'];?>&choice=<?=$choice['id'];?>"><p class="boxes-two"><?= $choice['choice'];?></p></a>
+                <?php
+
+                $counter++;
+                if ($counter % 3 == 0) { ?>
+                    </div>
+                <?php } 
+            } 
+            if ($counter % 3 != 0) { ?>
+                </div>
+            <?php } ?>
+        </div>
     </div>
 </body>
 </html>
