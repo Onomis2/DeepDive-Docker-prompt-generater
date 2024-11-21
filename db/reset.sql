@@ -34,13 +34,24 @@ CREATE TABLE users (
 );
 
 INSERT INTO subjects (subject, prompt) VALUES
-('code', 'using modern libraries like PHP 8.2.12, ECMAScript 2023, python 3.14, Lua 5.4.7, SQL Server 2022, phpMyAdmin 5.2 and others;');
+('code', 'using modern libraries like PHP 8.2.12, ECMAScript 2023, python 3.14, Lua 5.4.7, SQL Server 2022, phpMyAdmin 5.2 and others;'),
+('storytelling', 'writing a story, creating a plot, developing characters, and other storytelling techniques;'),
+('design', 'creating a design, using tools like Adobe Creative Suite, Figma, Sketch, and others;'),
+('art', 'drawing, painting, sculpting, and other art-related activities;'),
+('cooking', 'cooking, baking, grilling, and other culinary activities;'),
+('history', 'learning about historical events, studying the past, and other history-related activities;');
 
-INSERT INTO choices (id, choice, prompt) VALUES
-(1, 'debug een script of error', 'I need help debugging a specific error or bug in my code. Please assist me with finding the issue and providing potential fixes for it:'),
-(2, 'Geef lijst van functies', 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:'),
-(3, 'Geef een manier om te coderen', 'Please suggest coding techniques or approaches to solve the following problem/issue in:'),
-(4, 'Geef een uitleg', 'Can you provide a detailed explanation of the following:');
+INSERT INTO choices (choice, prompt) VALUES
+('debug een script of error', 'I need help debugging a specific error or bug in my code. Please assist me with finding the issue and providing potential fixes for it:'),
+('Geef lijst van functies', 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:'),
+('Geef een manier om te coderen', 'Please suggest coding techniques or approaches to solve the following problem/issue in:'),
+('Geef een uitleg', 'Can you provide a detailed explanation of the following:')
+('Geef een recept', 'Please provide a recipe for the following:'),
+('Geef een verhaal', ''),
+('Geef een design', ''),
+('Geef een kunstwerk', ''),
+('Geef een historisch feit', '');
+
 
 INSERT INTO tags (subject_id, choice_id) VALUES
 (1, 1),
