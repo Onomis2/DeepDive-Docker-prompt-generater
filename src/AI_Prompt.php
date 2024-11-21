@@ -25,8 +25,8 @@ session_start();
     </nav>
     <div class="center-boxes">
         <div class="boxes">
-            <label for="prompt">Enter Prompt:</label>
-            <textarea name="prompt" id="prompt">  </textarea>
+            <label>Enter Prompt:</label>
+            <textarea name="" id="prompt">  </textarea>
             <button>send</button>
             <script>
                 document.querySelector('button')
