@@ -1,4 +1,4 @@
-<?php
+<a?php
 
 require("connection.php");
 
@@ -26,28 +26,66 @@ session_start();
     <div class="center-boxes">
         <div class="boxes">
             <label for="prompt">Enter Prompt:</label>
-            <textarea name="" id="prompt">  </textarea>
-            <button class="send">send</button>
+            <textarea name="" id="prompt"></textarea>
+            <button class="send">Send</button>
+        </div>
+        <div class="boxes" id="response-box">
+            <p id="response-text">The AI's response will appear here.</p>
+            <button id="copy-button" style="display:none;">Copy to Clipboard</button>
+            <a href="#" id="open-chatgpt-link" style="display:none;"><button id="open-button">Open with ChatGPT</button></a>
         </div>
     </div>
     <script>
-        document.querySelector('.send')
-            .addEventListener('click', () => {
-                const data = new URLSearchParams();
-                data.append('prompt', document.getElementById('prompt').value);
-                fetch('ai_api.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: data
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    document.getElementById('prompt').value = data.response
+    document.querySelector('.send')
+        .addEventListener('click', () => {
+            const inputElement = document.getElementById('prompt');
+            const predefinedStart = "Rephrase this message into a concise AI prompt that outputs only the necessary information for a clear and actionable response. Provide the following prompt without any extra explanation or introduction: '";
+            const predefinedEnd = "'";
+
+            const modifiedValue = predefinedStart + inputElement.value + predefinedEnd;
+
+            const responseBox = document.getElementById('response-box');
+            const responseText = document.getElementById('response-text');
+            const copyButton = document.getElementById('copy-button');
+            const openButton = document.getElementById('open-chatgpt-link');
+
+            responseText.textContent = "Regenerating prompt...";
+            copyButton.style.display = "none";  // Hide the button while waiting for response
+
+            // Update the 'Open with ChatGPT' button link dynamically
+            const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(modifiedValue)}`;
+            document.getElementById('open-chatgpt-link').setAttribute('href', chatGptUrl);
+
+            // Show the 'Open with ChatGPT' button
+            openButton.style.display = "inline-block";
+
+            const data = new URLSearchParams();
+            data.append('prompt', modifiedValue);
+            fetch('ai_api.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data
             })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+                // Update the AI response
+                responseText.textContent = data.response;
+
+                // Show the copy button after response is available
+                copyButton.style.display = "inline-block";
+
+                // Clear the input if needed
+                inputElement.value = '';
             })
-    </script>
+            .catch(error => {
+                console.error('Error:', error);
+                responseText.textContent = "An error occurred. Please try again.";
+            });
+        });
+</script>
 </body>
 </html>
