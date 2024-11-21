@@ -24,6 +24,7 @@ $choices = $Database->fetchAll(PDO::FETCH_ASSOC);
     <nav class="right-button-login">
         <?php if (empty($_SESSION["loggedInUser"])) { ?>
             <a href="login-logout/login.php"><button class="login-button">Login</button></a>
+            <a href="homepage.php"><button class="back">Back</button></a>
         <?php } else { ?>
             <a href="login-logout/logout.php"><button class="login-button">Logout</button></a>
             <a href="admin/add.php?subject=<?= $_GET['subject']?>"><button class="add">Add</button></a>
