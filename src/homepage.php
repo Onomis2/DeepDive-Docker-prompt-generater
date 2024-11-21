@@ -31,10 +31,20 @@ $subjects = $Database->fetchAll(PDO::FETCH_ASSOC);
     <div class="title-center-home">
         <h1>Choose a subject</h1>
     </div>
-    <div class="center-boxes">
-        <?php foreach ($subjects as $subject) { ?>
-            <a href="choice.php?subject=<?=$subject['id'];?>"><p class="boxes"><?= $subject['subject'];?></p></a>
-        <?php } ?>
+        <div class="center-boxes">
+        <div class="row">
+            <?php 
+            $counter = 0;
+            foreach ($subjects as $subject) { ?>
+                <a href="choice.php?subject=<?=$subject['id'];?>"><p class="boxes"><?= $subject['subject'];?></p></a>
+                <?php
+                
+                if ($counter % 3 == 0 && $counter != 0) { ?>
+                    </div><div class="row">
+                <?php }
+                $counter++;
+            } ?>
+        </div>
     </div>
     <div class="down-left-box">
         <a href="AI_Prompt.php"><p class="box-left">Generate a prompt with AI</p></a>
