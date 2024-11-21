@@ -25,29 +25,29 @@ session_start();
     </nav>
     <div class="center-boxes">
         <div class="boxes">
-            <label>Enter Prompt:</label>
+            <label for="prompt">Enter Prompt:</label>
             <textarea name="" id="prompt">  </textarea>
-            <button>send</button>
-            <script>
-                document.querySelector('button')
-                    .addEventListener('click', () => {
-                        const data = new URLSearchParams();
-                        data.append('prompt', document.getElementById('prompt').value);
-                        fetch('ai_api.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: data
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data)
-                            document.getElementById('prompt').value = data.response
-                    })
-                    })
-            </script>
+            <button class="send">send</button>
         </div>
     </div>
+    <script>
+        document.querySelector('.send')
+            .addEventListener('click', () => {
+                const data = new URLSearchParams();
+                data.append('prompt', document.getElementById('prompt').value);
+                fetch('ai_api.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: data
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    document.getElementById('prompt').value = data.response
+            })
+            })
+    </script>
 </body>
 </html>
