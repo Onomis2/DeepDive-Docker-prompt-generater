@@ -51,15 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="center-boxes">
         <div class="boxes">
             <form method="post">
-                <p>Note: Please include what you are working with in your sentence.</p>
                 <input type="text" name="prompt" value="">
                 <button class="back">Submit</button></a> 
             </form>
-            <p>Examples:</p>
-            <p>In javascript, I want to loop through an array and save the results in a seperate file</p>
-            <p>Using cornstarch, I want to make fluffy omelets</p>
-            <p>In my medieval fantasy story, add items that the evil merchant sells that do more harm than good</p>
-            <p>what needle do I need to use to stitch a hole in my 100% polyester T-shirt</p>
         </div>
     </div>
 </body>

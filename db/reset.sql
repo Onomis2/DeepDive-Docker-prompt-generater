@@ -42,7 +42,9 @@ INSERT INTO subjects (subject, prompt) VALUES
 
 INSERT INTO choices (choice, prompt) VALUES
 /*1*/('Debug a script or error', 'I need help debugging a specific error or bug in my code. Please assist me with finding the issue and providing potential fixes for it:'),
-/*2*/('Give a list of functions', 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:'),
+/*2*/('Give a list of functions',
+
+ 'Can you provide a list of useful functions for the following language(s) that are applicable for the following:'),
 /*3*/('Give a method of coding', 'Please suggest coding techniques or approaches to solve the following problem/issue in:'),
 /*4*/('Give a detailed explaination', 'Can you provide a detailed explanation of the following:'),
 /*5*/('Analyse code', 'Analyze this code snippet:'),
