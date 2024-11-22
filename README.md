@@ -15,6 +15,7 @@ https://www.docker.com/
 After you have installed docker than you can do this command in your command prompt this needs to be on one single line.
 >
     docker run --name my-phpmyadmin -d --link database_for_promptbook:db -p 8080:80 -e PMA_HOST=database_for_promptbook phpmyadmin:latest && \ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama && \ docker exec -it ollama ollama run llama3
+
 If every thing is running than you can go to the phpmyadmin and you click on the database with the name promptbook than click on sql and than paste the code from import.sql in it or if you already have the database than you can run the code from reset.sql.
 
 If everything is done and it works than you can install the folders with the file's and than you can see the website you can use.
