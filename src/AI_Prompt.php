@@ -56,8 +56,8 @@ session_start();
             const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(modifiedValue)}`;
             document.getElementById('open-chatgpt-link').setAttribute('href', chatGptUrl);
 
-            // Show the 'Open with ChatGPT' button
-            openButton.style.display = "inline-block";
+            // Show the 'Open with ChatGPT' button only after response is available
+            openButton.style.display = "none";
 
             const data = new URLSearchParams();
             data.append('prompt', modifiedValue);
@@ -78,6 +78,13 @@ session_start();
                 // Show the copy button after response is available
                 copyButton.style.display = "inline-block";
 
+                // Show the 'Open with ChatGPT' button after response is available
+                openButton.style.display = "inline-block";
+
+                // Update the 'Open with ChatGPT' link with the response from the API
+                const chatGptResponseUrl = `https://chatgpt.com/?q=${encodeURIComponent(data.response)}`;
+                document.getElementById('open-chatgpt-link').setAttribute('href', chatGptResponseUrl);
+
                 // Clear the input if needed
                 inputElement.value = '';
             })
@@ -86,6 +93,19 @@ session_start();
                 responseText.textContent = "An error occurred. Please try again.";
             });
         });
-</script>
+
+    document.getElementById('copy-button').addEventListener('click', () => {
+        const responseText = document.getElementById('response-text').textContent;
+
+        // Use the Clipboard API to copy the response text
+        navigator.clipboard.writeText(responseText)
+            .then(() => {
+                alert("Copied to clipboard!");
+            })
+            .catch(error => {
+                console.error("Error copying to clipboard: ", error);
+            });
+    });
+    </script>
 </body>
 </html>
